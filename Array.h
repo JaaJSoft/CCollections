@@ -25,4 +25,6 @@ void ArrayDelete(Array);
 
 void ArrayDisplay(Array);
 
+void ArrayMatchLength(Array);
+
 #endif //ARRAY_ARRAY_H

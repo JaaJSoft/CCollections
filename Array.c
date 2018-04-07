@@ -70,3 +70,8 @@ void ArrayDisplay(Array a) {
     }
     printf("\n");
 }
+
+void ArrayMatchLength(Array a) {
+    a->tab = realloc(a->tab,sizeof(T)*a->length);
+    a->realLength = a->length;
+}
