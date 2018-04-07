@@ -6,7 +6,7 @@
 
 int main() {
 
-    Array a = newArray(2, 1);
+    Array a = newArray(3, 5);
     int b = 0, c = 5, d = 42;
 
     ArrayAppend(a, &b);
@@ -15,14 +15,11 @@ int main() {
     ArrayAppend(a, &b);
     ArraySet(a, 2, &d);
     ArrayDisplay(a);
-    ArrayRemoveValue(a,&b);
+    ArrayRemoveValue(a,2);
     ArrayDisplay(a);
 
     ArrayAppend(a, &d);
     ArrayDisplay(a);
-
-
-
 
     return 0;
 }

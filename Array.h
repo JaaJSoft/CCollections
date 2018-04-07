@@ -19,9 +19,7 @@ void ArraySet(Array, int i, T value);
 
 int ArrayAppend(Array, T value);
 
-void ArrayRemoveValue(Array, T value);
-
-void ArrayRemoveOneValue(Array a, T value);
+void ArrayRemoveValue(Array, int i);
 
 void ArrayDelete(Array);
 

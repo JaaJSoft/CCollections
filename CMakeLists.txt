@@ -1,6 +1,11 @@
-cmake_minimum_required(VERSION 3.9)
-project(Array C)
+cmake_minimum_required(VERSION 3.10)
+project(CCollections C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Array Array.c Array.h testArray.c)
+include_directories(.)
+
+add_executable(CCollections
+        Array.c
+        Array.h
+        testArray.c)

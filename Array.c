@@ -6,7 +6,7 @@
 
 
 struct array_t {
-    void **tab;
+    T * tab;
     int length;
     int realLength;
     int increment;
@@ -32,6 +32,7 @@ void ArraySet(Array a, int i, T value) {
     if (i >= a->length) {
         return;
     } else {
+        //printf("SET :%d %p\n",i, value);
         a->tab[i] = value;
     }
 }
@@ -40,46 +41,32 @@ int ArrayAppend(Array a, T value) {
     if (a->length == a->realLength) {
         a->realLength += a->increment;
         a->tab = realloc(a->tab, sizeof(a->realLength));
-        a->tab[a->length] = value;
-        a->length++;
     }
+    //printf("INSERT : %p\n", value);
     a->tab[a->length] = value;
     a->length++;
     return 0;
 }
 
-void ArrayRemoveValue(Array a, T value) {
-    for (int i = 0; i < a->length; i++) {
-        if (a->tab[i] == value) {
-            a->tab[i] = 0;
-            for (int j = i; j < a->length - 1; j++) {
-                a->tab[j] = a->tab[j + 1];
-            }
-            a->length--;
-        }
+void ArrayRemoveValue(Array a, int i) {
+    for (int j = i; j < a->length - 1; j++) {
+        a->tab[j] = a->tab[j + 1];
     }
+    a->length--;
 }
 
-void ArrayRemoveOneValue(Array a, T value) {
-    for (int i = 0; i < a->length; i++) {
-        if (a->tab[i] == value) {
-            a->tab[i] = 0;
-            for (int j = i; j < a->length - 1; j++) {
-                a->tab[j] = a->tab[j + 1];
-            }
-            a->length--;
-            return;
-        }
-    }
-}
 
 void ArrayDelete(Array a) {
-
+   free(a->tab);
+   free(a);
 }
 
 void ArrayDisplay(Array a) {
+    printf("Length : %d, Real Length : %d\n",a->length,a->realLength);
+    fflush(stdout);
     for (int i = 0; i < a->length; i++) {
-        printf("%d ", *((int *) (a->tab[i])));
+        printf("%p\n", a->tab[i]);
+        fflush(stdout);
     }
     printf("\n");
 }
