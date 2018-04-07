@@ -6,6 +6,6 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 
 add_executable(CCollections
-        Array.c
-        Array.h
-        testArray.c)
+        src/Array.c
+        include/Array.h
+        test/testArray.c src/LinkedList.c include/LinkedList.h include/util.h)
