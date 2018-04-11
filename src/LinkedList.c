@@ -3,6 +3,7 @@
 //
 
 #include <include/LinkedList.h>
+#include <stddef.h>
 
 struct linkedlist_t {
 
@@ -10,3 +11,9 @@ struct linkedlist_t {
     struct linkedlist_t * next;
 
 };
+
+LinkedList newLinkedList() {
+    return NULL;
+}
+
+
