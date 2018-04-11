@@ -5,6 +5,8 @@
 #include <include/LinkedList.h>
 
 struct linkedlist_t {
+
     T value;
     struct linkedlist_t * next;
-}*LinkedList;
+
+};
