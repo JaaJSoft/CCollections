@@ -11,6 +11,14 @@ typedef struct linkedlist_t *LinkedList;
 
 LinkedList newLinkedList();
 
+void LinkedListAppend(LinkedList this, T value);
+
+int LinkedListSearch(LinkedList this, T value);
+
+int LinkedListRemove(LinkedList this, T value);
+
+int LinkedListDisplay(LinkedList this);
+
 
 
 #endif //CCOLLECTIONS_LINKEDLIST_H

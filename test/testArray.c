@@ -2,24 +2,24 @@
 // Created by Pierre on 06/04/2018.
 //
 
-#include <include/Array.h>
+#include <include/ArrayList.h>
 
 int main() {
 
-    Array a = newArray(3, 5);
+    ArrayList a = newArrayList(3, 5);
     int b = 0, c = 5, d = 42;
 
-    ArrayAppend(a, &b);
-    ArrayAppend(a, &c);
-    ArrayAppend(a, &c);
-    ArrayAppend(a, &b);
-    ArraySet(a, 2, &d);
-    ArrayDisplay(a);
-    ArrayRemoveValue(a,2);
-    ArrayDisplay(a);
+    ArrayListAppend(a, &b);
+    ArrayListAppend(a, &c);
+    ArrayListAppend(a, &c);
+    ArrayListAppend(a, &b);
+    ArrayListSet(a, 2, &d);
+    ArrayListDisplay(a);
+    ArrayListRemoveValue(a,2);
+    ArrayListDisplay(a);
 
-    ArrayAppend(a, &d);
-    ArrayDisplay(a);
+    ArrayListAppend(a, &d);
+    ArrayListDisplay(a);
 
     return 0;
 }
