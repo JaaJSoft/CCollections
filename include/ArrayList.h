@@ -3,7 +3,7 @@
 //
 
 #ifndef CCOLLECTIONS_ARRAYLIST_H
-#define CCOLLECTIONS_ARRAYListLIST_H
+#define CCOLLECTIONS_ARRAYLIST_H
 
 #include <stdio.h>
 #include <stdlib.h>
