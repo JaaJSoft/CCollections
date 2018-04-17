@@ -5,6 +5,11 @@
 #ifndef CCOLLECTIONS_UTIL_H
 #define CCOLLECTIONS_UTIL_H
 
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef void * T;
+
+
 
 #endif //CCOLLECTIONS_UTIL_H

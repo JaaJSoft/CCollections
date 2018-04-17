@@ -87,3 +87,10 @@ int ArrayListGetRealLength(ArrayList this) {
 int ArrayListGetIncrement(ArrayList this) {
     return this->increment;
 }
+
+int ArrayListIsEmpty(ArrayList this) {
+    if(this->length==0){
+        return 1;
+    }
+    return 0;
+}

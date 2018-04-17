@@ -3,13 +3,17 @@
 //
 
 #include <include/LinkedList.h>
-#include <stddef.h>
+
 
 struct linkedlist_t {
+    int length;
+    struct linkedlist_node *begin;
+    struct linkedlist_node *end;
+};
 
+struct linkedlist_node {
     T value;
-    struct linkedlist_t * next;
-
+    struct linkedlist_node *next;
 };
 
 LinkedList newLinkedList() {
