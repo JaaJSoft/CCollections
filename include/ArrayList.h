@@ -39,6 +39,6 @@ void ArrayListForEach(ArrayList this, T (*apply)(T value));
 
 int ArrayListIsEmpty(ArrayList this);
 
-T *ArrayListTArrayo(ArrayList this);
+T *ArrayListToArray(ArrayList this);
 
 #endif

@@ -8,6 +8,7 @@
 struct linkedlist_t {
     int length;
     struct linkedlist_node *begin;
+    struct linkedlist_node *current;
     struct linkedlist_node *end;
 };
 
