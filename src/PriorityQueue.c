@@ -20,26 +20,7 @@
 /**
  * @author Pierre Chopinet
  * @author Rémi Lecouillard
- * @Date 07/04/2018
+ * @Date 25/04/18
  */
 
-#include <LinkedList.h>
-
-
-struct linkedlist_t {
-    int length;
-    struct linkedlist_node *begin;
-    struct linkedlist_node *current;
-    struct linkedlist_node *end;
-};
-
-struct linkedlist_node {
-    T value;
-    struct linkedlist_node *next;
-};
-
-LinkedList newLinkedList() {
-    return NULL;
-}
-
-
+#include "PriorityQueue.h"

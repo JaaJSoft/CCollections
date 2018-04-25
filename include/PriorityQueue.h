@@ -26,7 +26,7 @@
 #ifndef CCOLLECTIONS_PRIORITYQUEUE_H
 #define CCOLLECTIONS_PRIORITYQUEUE_H
 
-#include <include/util.h>
+#include <util.h>
 
 /**
  * A priority queue is like a simple queue, but with an additional priority level.

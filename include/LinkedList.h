@@ -26,7 +26,7 @@
 #ifndef CCOLLECTIONS_LINKEDLIST_H
 #define CCOLLECTIONS_LINKEDLIST_H
 
-#include <include/util.h>
+#include <util.h>
 
 typedef struct linkedlist_t *LinkedList;
 

@@ -26,7 +26,7 @@
 #ifndef CCOLLECTIONS_STACK_H
 #define CCOLLECTIONS_STACK_H
 
-#include <include/util.h>
+#include <util.h>
 
 /**
  *
