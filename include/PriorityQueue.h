@@ -67,7 +67,7 @@ void PriorityQueueAdd(PriorityQueue this,T value,int priority);
  * @param value
  * @param newPriority
  */
-void PriorityQueueDecreasePrio(PriorityQueue this,T value,int newPriority);
+void PriorityQueueChangePrio(PriorityQueue this, T value, int newPriority);
 
 /**
  *
