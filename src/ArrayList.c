@@ -58,7 +58,7 @@ void ArrayListSet(ArrayList this, int i, T value) {
     }
 }
 
-int ArrayListAppend(ArrayList this, T value) {
+void ArrayListAppend(ArrayList this, T value) {
     if (this->length == this->realLength) {
         this->realLength += this->increment;
         this->tab = realloc(this->tab, sizeof(this->realLength));
@@ -66,7 +66,6 @@ int ArrayListAppend(ArrayList this, T value) {
     //printf("INSERT : %p\n", value);
     this->tab[this->length] = value;
     this->length++;
-    return 0;
 }
 
 void ArrayListRemoveValue(ArrayList this, int i) {
