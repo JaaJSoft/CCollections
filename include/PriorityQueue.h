@@ -35,6 +35,7 @@
  * The highest priority can be either the min or the max value depending on the
  * implementation.
  * In this implementation, the min value is the highest priority.
+ * It is implemented with a binary heap.
  *
  */
 typedef struct priorityqueue_t *PriorityQueue;
@@ -63,11 +64,22 @@ void PriorityQueueAdd(PriorityQueue this,T value,int priority);
 
 /**
  * Changes the priority level of a value.
+ * This is a simple call of PriorityQueueChangePrioSpecificSearch with the basic
+ * function comparison.
  * @param this
- * @param value
+ * @param value must be the same pointer as the one in the queue
  * @param newPriority
  */
 void PriorityQueueChangePrio(PriorityQueue this, T value, int newPriority);
+
+/**
+ * Changes the priority level of a value.
+ * @param this
+ * @param value
+ * @param newPriority
+ * @param equals a function pointer to compare elements of the queue with the value parameter
+ */
+void PriorityQueueChangePrioSpecificSearch(PriorityQueue this, T value, int newPriority, int (*equals)(T, T));
 
 /**
  *
