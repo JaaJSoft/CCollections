@@ -15,11 +15,11 @@ int main() {
     ArrayListAppend(a, &b);
     ArrayListSet(a, 2, &d);
     ArrayListDisplay(a);
-    ArrayListRemoveValue(a,2);
+    ArrayListRemoveValue(a, 2);
     ArrayListDisplay(a);
 
     ArrayListAppend(a, &d);
     ArrayListDisplay(a);
-
+    ArrayListDelete(a);
     return 0;
 }

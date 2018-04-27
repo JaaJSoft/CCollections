@@ -36,7 +36,7 @@ struct linkedlist_t {
     struct linkedlist_node *first;
     struct linkedlist_node *beforeCurrent;
     struct linkedlist_node *current;
-    struct linkedlist_node *last;
+    struct linkedlist_node *end;
 };
 
 struct linkedlist_node {
