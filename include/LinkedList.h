@@ -38,11 +38,15 @@ void LinkedListAppendLinkedList(LinkedList this, LinkedList l);
 
 void LinkedListAdd(LinkedList this, T value, int i);
 
-T LinkedListGet(LinkedList this, int i);
+void LinkedListAddNextCurrent(LinkedList this, T value, int i);
+
+int LinkedListSetCurrent(LinkedList this, int i);
 
 T LinkedListNext(LinkedList this);
 
-void LinkedListCurrentToBegin(LinkedList this);
+int LinkedListHasNext(LinkedList this);
+
+void LinkedListSetCurrentToBegin(LinkedList this);
 
 int LinkedListSearch(LinkedList this, T value);
 

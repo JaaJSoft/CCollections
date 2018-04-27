@@ -89,7 +89,7 @@ void ArrayListRemoveValue(ArrayList this, int i);
 
 /**
  * free the arraylist
- * @warning this function doesn't freed the pointer in the arraylist
+ * @warning this function doesn't freed the pointer stored in the arraylist
  *
  * @param this
  */

@@ -39,7 +39,13 @@ struct linkedlist_node {
 };
 
 LinkedList newLinkedList() {
-    return NULL;
+    LinkedList l = malloc(sizeof(struct linkedlist_t));
+    l->length = 0;
+    l->begin = NULL;
+    l->current = NULL;
+    l->end = NULL;
+    return l;
 }
+
 
 
