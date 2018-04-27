@@ -2,7 +2,7 @@
 // Created by Pierre on 06/04/2018.
 //
 
-#include <include/ArrayList.h>
+#include <ArrayList.h>
 
 int main() {
 

@@ -8,4 +8,4 @@ include_directories(include)
 add_executable(CCollections
         src/ArrayList.c
         include/ArrayList.h
-        test/testArray.c src/LinkedList.c include/LinkedList.h include/util.h include/TreeSet.h src/PriorityQueue.c)
+        test/testArray.c src/LinkedList.c include/LinkedList.h include/Stack.h include/PriorityQueue.h include/util.h include/TreeSet.h src/PriorityQueue.c)
