@@ -43,15 +43,15 @@ struct priorityqueue_t {
     int size;
 };
 
-void inline percolateUp(PriorityQueue this, int index);
+void percolateUp(PriorityQueue this, int index);
 
-int inline hasToMoveUp(PriorityQueue this, int index,int *father);
+int hasToMoveUp(PriorityQueue this, int index, int *father);
 
-void inline percolateDown(PriorityQueue this, int index);
+void percolateDown(PriorityQueue this, int index);
 
-int inline hasToMoveDown(PriorityQueue this, int index, int *sonMin);
+int hasToMoveDown(PriorityQueue this, int index, int *sonMin);
 
-void inline swap(struct cell_t *a, struct cell_t *b);
+void swap(struct cell_t *a, struct cell_t *b);
 
 int basicSearch(T,T);
 
@@ -71,7 +71,7 @@ T PriorityQueuePop(PriorityQueue this) {
     return res;
 }
 
-void PriorityQueueAdd(PriorityQueue this,T value,int priority) {
+void PriorityQueueAdd(PriorityQueue this, T value, int priority) {
     if (_index >= _size) {
         _heap = realloc(_heap, sizeof(struct cell_t) * (_size += INCREMENT));
     }
@@ -123,20 +123,20 @@ void PriorityQueueDelete(PriorityQueue this) {
 
 void percolateUp(PriorityQueue this, int index) {
     int father;
-    while(hasToMoveUp(this, index, &father)) {
+    while (hasToMoveUp(this, index, &father)) {
         swap(&_heap[index], &_heap[father]);
         index = father;
     }
 }
 
-int inline hasToMoveUp(PriorityQueue this, int index,int *father) {
+int inline hasToMoveUp(PriorityQueue this, int index, int *father) {
     *father = index >> 1;
     return index != 1 && _heap[index].priority > _heap[*father].priority;
 }
 
 void percolateDown(PriorityQueue this, int index) {
     int sonMin;
-    while(hasToMoveDown(this, index, &sonMin)) {
+    while (hasToMoveDown(this, index, &sonMin)) {
         swap(&_heap[index], &_heap[sonMin]);
         index = sonMin;
     }
@@ -166,7 +166,7 @@ int hasToMoveDown(PriorityQueue this, int index, int *sonMin) {
 
 
 void inline swap(struct cell_t *a, struct cell_t *b) {
-    struct cell tmp;
+    struct cell_t tmp;
     tmp = *a;
     *a = *b;
     *b = tmp;
