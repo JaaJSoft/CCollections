@@ -53,6 +53,8 @@ int hasToMoveDown(PriorityQueue this, int index, int *sonMin);
 
 void swap(struct cell_t *a, struct cell_t *b);
 
+int basicSearch(T,T);
+
 PriorityQueue newPriorityQueue() {
     PriorityQueue queue = malloc(sizeof(struct priorityqueue_t));
     queue->heap = calloc(sizeof(struct cell_t), HEAP_SIZE);
@@ -79,16 +81,17 @@ void PriorityQueueAdd(PriorityQueue this, T value, int priority) {
     _index++;
 }
 
-
 void PriorityQueueChangePrio(PriorityQueue this, T value, int newPriority) {
+    PriorityQueueChangePrioSpecificSearch(this, value, newPriority, basicSearch);
+}
+
+void PriorityQueueChangePrioSpecificSearch(PriorityQueue this, T value, int newPriority, int (*equals)(T, T)) {
     int index;
 
     index = 1;
 
     /* Searches for the value */
-    /* Only works with the same pointer */
-    /* TODO use a function pointer to have a generic search */
-    while (_heap[index].value != value && index < _index) {
+    while(!equals(_heap[index].value, value) && index < _index) {
         index++;
     }
 
@@ -167,4 +170,8 @@ void inline swap(struct cell_t *a, struct cell_t *b) {
     tmp = *a;
     *a = *b;
     *b = tmp;
+}
+
+int basicSearch(T a,T b) {
+    return a == b;
 }
