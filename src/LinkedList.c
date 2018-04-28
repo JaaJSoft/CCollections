@@ -29,12 +29,12 @@
 #define _current this->current
 #define _last this->last
 #define _length this->length
-#define _beforeCurrent this->beforeCurrent
+#define _nextOne this->nextOne
 
 struct linkedlist_t {
     int length;
     struct linkedlist_node *first;
-    struct linkedlist_node *beforeCurrent;
+    struct linkedlist_node *nextOne;
     struct linkedlist_node *current;
     struct linkedlist_node *last;
 };
@@ -52,7 +52,7 @@ LinkedList newLinkedList() {
     list->first = NULL;
     list->current = NULL;
     list->last = NULL;
-    list->beforeCurrent = NULL;
+    list->nextOne = NULL;
     return list;
 }
 
@@ -66,6 +66,7 @@ void LinkedListAppendLinkedList(LinkedList this, LinkedList l) {
     _last->next = l->first;
     _last = l->last;
     _length += l->length;
+    free(l);
 }
 
 /* add */
@@ -78,6 +79,7 @@ void LinkedListAddLast(LinkedList this, T value) {
     if (LinkedListIsEmpty(this)) {
         _first = node;
         _last = node;
+        _nextOne = _first;
     } else {
         _last->next = node;
         _last = node;
@@ -93,13 +95,17 @@ void LinkedListAddFirst(LinkedList this, T value) {
     if (LinkedListIsEmpty(this)) {
         _first = node;
         _last = node;
+
+        _nextOne = _first;
+
     } else {
+
+        if (_nextOne == _first) {
+            _nextOne = node;
+        }
+
         node->next = _first;
         _first = node;
-
-        if (_current && !_beforeCurrent) {
-            _beforeCurrent = _first;
-        }
 
     }
     _length++;
@@ -122,8 +128,8 @@ void LinkedListAddAtIndex(LinkedList this, T value, int i) {
         nodeAtIndexMinus1->next = node;
         _length++;
 
-        if (node->next == _current) {
-            _beforeCurrent = node;
+        if (node->next == _nextOne) {
+            _nextOne = node;
         }
     }
 }
@@ -139,6 +145,7 @@ void LinkedListAddCurrent(LinkedList this, T value) {
         node = newNode(value);
         node->next = _current->next;
         _current->next = node;
+        _nextOne = _current->next;
         _length++;
     }
 }
@@ -191,13 +198,7 @@ int LinkedListRemoveAtIndex(LinkedList this, int i) {
 }
 
 int LinkedListRemoveCurrent(LinkedList this) {
-
-    if (_current) {
-        NodeRemove(this, _beforeCurrent, _current);
-        return 1;
-    }
-
-    return 0;
+    return LinkedListRemoveValue(this, _current);
 }
 
 /* get */
@@ -225,21 +226,18 @@ T LinkedListGetCurrent(LinkedList this) {
 /* iterator */
 
 int LinkedListMoveCurrentNext(LinkedList this) {
-    if (!_current) {
-        _current = _first;
+    if (!_nextOne) {
+        return 1;
+    } else {
+        _current = _nextOne;
+        _nextOne = _current->next;
         return 1;
     }
-    if (_current->next) {
-        _beforeCurrent = _current;
-        _current = _current->next;
-        return 1;
-    }
-    return 0;
 }
 
 void LinkedListResetCurrent(LinkedList this) {
     _current = NULL;
-    _beforeCurrent = NULL;
+    _nextOne = _first;
 }
 
 /* usefull */
