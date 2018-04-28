@@ -40,9 +40,10 @@ typedef struct ArrayList_t *ArrayList;
  *
  * @param initLength the initial length of the array
  * @param increment
+ * @param size of what is store in the ArrayList sizeof(int) for exemple if you store integer
  * @return Pointer on the Arraylist
  */
-ArrayList newArrayList(int initLength, int increment);
+ArrayList newArrayList(int initLength, int increment, size_t size);
 
 /**
  * Get the value at the i index
@@ -71,13 +72,23 @@ void ArrayListSet(ArrayList this, int i, T value);
 void ArrayListAppend(ArrayList this, T value);
 
 /**
- * Test if value is on the ArrayList
+ * Test if the pointer is on the ArrayList
  *
  * @param this
  * @param value
  * @return 1 if true, 0 if false
  */
 int ArrayListContains(ArrayList this, T value);
+
+/**
+ * Test if the value pointing by the pointer is on the ArrayList
+ *
+ * @param this
+ * @param value
+ * @return
+ */
+int ArrayListContainsValue(ArrayList this, T value);
+
 
 /**
  * Remove the value at the i index
@@ -134,13 +145,19 @@ int ArrayListGetRealLength(ArrayList this);
 int ArrayListGetIncrement(ArrayList this);
 
 /**
- * @warning not implemented yet
+ * Apply the apply function to all the element in the ArrayList
  *
- * @param this
- * @param apply
+ * @param this arraylist
+ * @param apply a function pointer that must be a function of the form T function(T value)
  */
 void ArrayListForEach(ArrayList this, T (*apply)(T value));
 
+/**
+ * test if the array is empty
+ *
+ * @param this
+ * @return 1 if empty, 0 if not
+ */
 int ArrayListIsEmpty(ArrayList this);
 
 /**

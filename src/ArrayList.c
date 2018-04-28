@@ -24,6 +24,7 @@
  */
 
 #include <ArrayList.h>
+#include <string.h>
 
 
 struct ArrayList_t {
@@ -31,13 +32,15 @@ struct ArrayList_t {
     int length;
     int realLength;
     int increment;
+    size_t size;
 };
 
-ArrayList newArrayList(int initLength, int increment) {
+ArrayList newArrayList(int initLength, int increment, size_t size) {
     ArrayList this = malloc(sizeof(struct ArrayList_t));
     this->increment = increment;
     this->length = 0;
     this->realLength = initLength;
+    this->size = size;
     this->tab = malloc(sizeof(void *) * initLength);
     return this;
 }
@@ -109,8 +112,41 @@ int ArrayListGetIncrement(ArrayList this) {
 }
 
 int ArrayListIsEmpty(ArrayList this) {
-    if(this->length==0){
+    if (this->length == 0) {
         return 1;
+    }
+    return 0;
+}
+
+T *ArrayListToArray(ArrayList this) {
+    T *tab = malloc(sizeof(T) * this->length);
+    memcpy(tab, this->tab, (size_t) this->length);
+    return tab;
+}
+
+void ArrayListForEach(ArrayList this, T (*apply)(T)) {
+    int i;
+    for (i = 0; i < this->length; i++) {
+        this->tab[i] = apply(this->tab[i]);
+    }
+}
+
+int ArrayListContains(ArrayList this, T value) {
+    int i;
+    for (i = 0; i < this->length; i++) {
+        if (this->tab[i] == value) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int ArrayListContainsValue(ArrayList this, T value) {
+    int i;
+    for (i = 0; i < this->length; i++) {
+        if (memcmp(this->tab[i], value, this->size) == 0) {
+            return 1;
+        }
     }
     return 0;
 }
