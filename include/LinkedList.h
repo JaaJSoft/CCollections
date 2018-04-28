@@ -97,8 +97,9 @@ int LinkedListRemoveAtIndex(LinkedList this, int i);
 
 /**
  * Removes the current value.
+ * The current value is set on the previous one.
  * @param this
- * @return 0 if current is not set, therfor can't be remove. 1 if it has been removed.
+ * @return 0 if current is not set, therefor can't be remove. 1 if it has been removed.
  */
 int LinkedListRemoveCurrent(LinkedList this);
 

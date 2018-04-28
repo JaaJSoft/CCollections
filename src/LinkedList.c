@@ -333,6 +333,10 @@ void NodeRemove(LinkedList this, struct linkedlist_node *previous, struct linked
         _current = previous;
     }
 
+    if (toRemove == _nextOne) {
+        _nextOne = ( _current ? _current->next : NULL );
+    }
+
     _length--;
     free(toRemove);
 }
