@@ -36,9 +36,17 @@ void TreeSetAppend(TreeSet this, T value);
 
 int TreeSetRemoveValue(TreeSet this, T value);
 
+int TreeSetContains(TreeSet this, T value);
+
+int TreeSetContainsValue(TreeSet this, T value);
+
+int TreeSetIsEmpty(TreeSet this);
+
+
+
 void TreeSetDisplay(TreeSet this);
 
-T* TreeSetToArray(TreeSet this);
+T *TreeSetToArray(TreeSet this);
 
 void TreeSetDelete(TreeSet this);
 

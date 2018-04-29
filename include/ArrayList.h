@@ -43,7 +43,7 @@ typedef struct ArrayList_t *ArrayList;
  * @param size of what is store in the ArrayList sizeof(int) for exemple if you store integer
  * @return Pointer on the Arraylist
  */
-ArrayList newArrayList(int initLength, int increment, size_t size);
+ArrayList newArrayList(size_t initLength, size_t increment, size_t size);
 
 /**
  * Get the value at the i index
@@ -52,7 +52,7 @@ ArrayList newArrayList(int initLength, int increment, size_t size);
  * @param i
  * @return
  */
-T ArrayListGet(ArrayList this, int i);
+T ArrayListGet(ArrayList this, unsigned int i);
 
 /**
  * Set the T value at index i
@@ -61,7 +61,7 @@ T ArrayListGet(ArrayList this, int i);
  * @param i
  * @param value
  */
-void ArrayListSet(ArrayList this, int i, T value);
+void ArrayListSet(ArrayList this, unsigned int i, T value);
 
 /**
  * append value at the end of the Arraylist
@@ -96,7 +96,7 @@ int ArrayListContainsValue(ArrayList this, T value);
  * @param this
  * @param i index
  */
-void ArrayListRemoveValue(ArrayList this, int i);
+void ArrayListRemoveValue(ArrayList this, unsigned int i);
 
 /**
  * free the arraylist
@@ -167,5 +167,7 @@ int ArrayListIsEmpty(ArrayList this);
  * @return array of T
  */
 T *ArrayListToArray(ArrayList this);
+
+
 
 #endif

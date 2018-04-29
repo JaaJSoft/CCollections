@@ -29,13 +29,13 @@
 
 struct ArrayList_t {
     T *tab;
-    int length;
-    int realLength;
-    int increment;
+    size_t length;
+    size_t realLength;
+    size_t increment;
     size_t size;
 };
 
-ArrayList newArrayList(int initLength, int increment, size_t size) {
+ArrayList newArrayList(size_t initLength, size_t increment, size_t size) {
     ArrayList this = malloc(sizeof(struct ArrayList_t));
     this->increment = increment;
     this->length = 0;
@@ -45,14 +45,14 @@ ArrayList newArrayList(int initLength, int increment, size_t size) {
     return this;
 }
 
-T ArrayListGet(ArrayList this, int i) {
+T ArrayListGet(ArrayList this, unsigned int i) {
     if (i >= this->length) {
         return NULL;
     }
     return this->tab[i];
 }
 
-void ArrayListSet(ArrayList this, int i, T value) {
+void ArrayListSet(ArrayList this, unsigned int i, T value) {
     if (i >= this->length) {
         return;
     } else {
@@ -71,7 +71,7 @@ void ArrayListAppend(ArrayList this, T value) {
     this->length++;
 }
 
-void ArrayListRemoveValue(ArrayList this, int i) {
+void ArrayListRemoveValue(ArrayList this, unsigned int i) {
     for (int j = i; j < this->length - 1; j++) {
         this->tab[j] = this->tab[j + 1];
     }

@@ -29,6 +29,7 @@ struct treeset_t {
     struct treeset_t root;
     struct treeset_t current;
     size_t size;
+    unsigned long long length;
 
     int (*compareTo)(T this, T value);
 };
