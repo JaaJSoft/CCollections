@@ -31,13 +31,11 @@ struct ArrayList_t {
     T *tab;
     size_t length;
     size_t realLength;
-    size_t increment;
     size_t size;
 };
 
-ArrayList newArrayList(size_t initLength, size_t increment, size_t size) {
+ArrayList newArrayList(size_t initLength, size_t size) {
     ArrayList this = malloc(sizeof(struct ArrayList_t));
-    this->increment = increment;
     this->length = 0;
     this->realLength = initLength;
     this->size = size;
@@ -63,7 +61,7 @@ void ArrayListSet(ArrayList this, unsigned int i, T value) {
 
 void ArrayListAppend(ArrayList this, T value) {
     if (this->length == this->realLength) {
-        this->realLength += this->increment;
+        this->realLength *= 2;
         this->tab = realloc(this->tab, sizeof(this->realLength));
     }
     //printf("INSERT : %p\n", value);

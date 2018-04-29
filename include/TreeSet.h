@@ -34,6 +34,8 @@ TreeSet newTreeSet();
 
 void TreeSetAppend(TreeSet this, T value);
 
+int TreeSetRemove(TreeSet this, unsigned int i);
+
 int TreeSetRemoveValue(TreeSet this, T value);
 
 int TreeSetContains(TreeSet this, T value);
@@ -41,8 +43,6 @@ int TreeSetContains(TreeSet this, T value);
 int TreeSetContainsValue(TreeSet this, T value);
 
 int TreeSetIsEmpty(TreeSet this);
-
-
 
 void TreeSetDisplay(TreeSet this);
 

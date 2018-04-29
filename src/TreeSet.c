@@ -28,8 +28,8 @@
 struct treeset_t {
     struct treeset_t root;
     struct treeset_t current;
-    size_t size;
-    unsigned long long length;
+    size_t size; //size of element
+    unsigned int numberOfElement;
 
     int (*compareTo)(T this, T value);
 };

@@ -39,11 +39,10 @@ typedef struct ArrayList_t *ArrayList;
  * Allocates memory for an ArrayList
  *
  * @param initLength the initial length of the array
- * @param increment
  * @param size of what is store in the ArrayList sizeof(int) for exemple if you store integer
  * @return Pointer on the Arraylist
  */
-ArrayList newArrayList(size_t initLength, size_t increment, size_t size);
+ArrayList newArrayList(size_t initLength, size_t size);
 
 /**
  * Get the value at the i index
@@ -167,7 +166,6 @@ int ArrayListIsEmpty(ArrayList this);
  * @return array of T
  */
 T *ArrayListToArray(ArrayList this);
-
 
 
 #endif
