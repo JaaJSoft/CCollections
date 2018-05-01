@@ -78,7 +78,6 @@ void ArrayListRemoveValue(ArrayList this, unsigned int i) {
 
 
 void ArrayListDelete(ArrayList this) {
-    free(this->tab);
     free(this);
 }
 
