@@ -58,6 +58,4 @@ T *TreeSetToArray(TreeSet this);
 
 void TreeSetDelete(TreeSet this);
 
-int TreeSetIsEmpty(TreeSet this);
-
 #endif //CCOLLECTIONS_TREESET_H
