@@ -25,18 +25,85 @@
 
 #include <TreeSet.h>
 
+typedef struct treenode_t {
+    struct treenode_t *sonG;
+    struct treenode_t *sonD;
+    struct treenode_t *father;
+    T value;
+} *TreeNode;
+
 struct treeset_t {
-    struct treeset_t root;
-    struct treeset_t current;
+    TreeNode root;
+    TreeNode current;
     size_t size; //size of element
     unsigned int numberOfElement;
 
-    int (*compareTo)(T this, T value);
+    int (*compareTo)(T value1, T value2);
 };
 
-typedef struct treenode_t {
-    struct treenode_t sonG;
-    struct treenode_t sonD;
-    struct treenode_t father;
-    T value;
-} *TreeNode;
+TreeSet newTreeSet(int (*compareTo)(T, T), size_t size) {
+    TreeSet t = malloc(sizeof(struct treeset_t));
+    t->compareTo = compareTo;
+    t->current = NULL;
+    t->root = NULL;
+    t->size = size;
+    t->numberOfElement = 0;
+    return t;
+}
+
+int isNULL(TreeNode t) {
+    return t == NULL;
+}
+
+TreeNode newTreeNode(TreeNode father, T value) {
+    TreeNode t = malloc(sizeof(struct treenode_t));
+    t->father = father;
+    t->sonD = NULL;
+    t->sonG = NULL;
+    t->value = value;
+    return t;
+}
+
+int TreeNodeAdd(TreeSet this, TreeNode t, T value) {
+    int compare = this->compareTo(t->value, value);
+    if (compare < 0) {
+        if (isNULL(t->sonG)) {
+            t->sonG = newTreeNode(t, value);
+            this->numberOfElement++;
+        } else {
+            TreeNodeAdd(this, t->sonG, value);
+        }
+    } else if (compare > 0) {
+        if (isNULL(t->sonD)) {
+            t->sonD = newTreeNode(t, value);
+            this->numberOfElement++;
+        } else {
+            TreeNodeAdd(this, t->sonD, value);
+        }
+    } else {
+        return 0;
+    }
+}
+
+
+int TreeSetAdd(TreeSet this, T value) {
+    if (TreeSetIsEmpty(this)) {
+        this->root = newTreeNode(NULL, value);
+        this->numberOfElement++;
+    } else {
+        TreeNodeAdd(this, this->root, value);
+    }
+}
+
+int TreeSetIsEmpty(TreeSet this) {
+    return 0;
+}
+
+
+
+
+
+
+
+
+
