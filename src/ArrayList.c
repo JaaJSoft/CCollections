@@ -97,16 +97,12 @@ void ArrayListMatchLength(ArrayList this) {
     this->realLength = this->length;
 }
 
-int ArrayListGetLength(ArrayList this) {
+size_t ArrayListGetLength(ArrayList this) {
     return this->length;
 }
 
-int ArrayListGetRealLength(ArrayList this) {
+size_t ArrayListGetRealLength(ArrayList this) {
     return this->realLength;
-}
-
-int ArrayListGetIncrement(ArrayList this) {
-    return this->increment;
 }
 
 int ArrayListIsEmpty(ArrayList this) {
