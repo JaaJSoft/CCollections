@@ -29,67 +29,53 @@
 #include <util.h>
 
 /**
- * The stack is a list where the last in is the last out
+ *
  */
 typedef struct stack_t *Stack;
 
-/**
- * The cell contain a value and a reference to the previous cell of the stack
- */
-typedef struct cell_t *Cell;
 
 /**
  * Create a new stack
  * @return the stack created
  */
-Stack newStack();
+Stack newStack(size_t maxSize);
+
 
 /**
- * Create a new cell
- * @param the value of the cell
- * @return the cell created
- */
-Cell newCell(T value);
-
-/**
- * Pop the last value of the stack
- * @param the stack in which the value will be popped
- * @return the last value of the stack
+ *
+ * @param this
+ * @return
  */
 T StackPop(Stack this);
 
 /**
- * Add a value into the stack by creating a new cell
- * @param the stack in which the value will be added
- * @param the value to add to the stack
+ *
+ * @param this
+ * @param value
  */
 void StackAdd(Stack this,T value);
 
 /**
- * Check if the stack is empty
- * @param the stack to check the state
- * @return 1 if it's empty, else 0
+ *
+ * @param this
+ * @return
  */
 int StackIsEmpty(Stack this);
 
+/**
+ * @param this
+ * @return
+ */
+int StackIsFull(Stack this);
 
 /**
- * Display all values included in the stack
- * from the last to the first value
- * @param the stack to display
+ * @param this
  */
 void DisplayAllStack(Stack this);
 
 /**
- * Delete the stack by deleting all cell of the stack
- * @param the stack to delete
+ * @param this
  */
 void StackDelete(Stack this);
-
-/**
- * Delete a cell and release its memory
- * @param the cell to delete
- */
-void CellDelete(Cell cell);
 
 #endif //CCOLLECTIONS_STACK_H
