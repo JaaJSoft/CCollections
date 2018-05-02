@@ -26,36 +26,37 @@
 
 #include <Stack.h>
 
-struct stack_t{
-    struct cell_t* top;
+struct stack_t {
+    struct cell_t *top;
 };
 
 struct cell_t {
-    struct cell_t* previous;
+    struct cell_t *previous;
     T value;
 };
 
 
-Stack newStack(){
-    Stack this = (struct stack_t*) malloc(sizeof(struct stack_t));
+Stack newStack() {
+    Stack this = (struct stack_t *) malloc(sizeof(struct stack_t));
+    this->top = NULL;
     return this;
 }
 
 
-Cell newCell(T value){
-    Cell cell = (struct cell_t*) malloc(sizeof(struct cell_t));
+Cell newCell(T value) {
+    Cell cell = (struct cell_t *) malloc(sizeof(struct cell_t));
     cell->value = value;
     cell->previous = NULL;
     return cell;
 }
 
 
-T StackPop(Stack this){
+T StackPop(Stack this) {
     T tempValue;
     Cell tempCell;
-    if(StackIsEmpty(this)){
+    if (StackIsEmpty(this)) {
         return NULL;
-    }else{
+    } else {
         tempValue = this->top->value;
         tempCell = this->top->previous;
         CellDelete(this->top);
@@ -65,7 +66,7 @@ T StackPop(Stack this){
 }
 
 
-void StackAdd(Stack this,T value){
+void StackAdd(Stack this, T value) {
     Cell cell = newCell(value);
     Cell tmp = this->top;
     this->top = cell;
@@ -73,19 +74,18 @@ void StackAdd(Stack this,T value){
 }
 
 
-int StackIsEmpty(Stack this){
+int StackIsEmpty(Stack this) {
     return (this->top == NULL);
 }
 
 
-
-void DisplayAllStack(Stack this){
+void DisplayAllStack(Stack this) {
     Cell temp = this->top;
     int count = 0;
-    if(StackIsEmpty(this)){
+    if (StackIsEmpty(this)) {
         printf("Stack is empty\n");
-    }else{
-        while(temp != NULL){
+    } else {
+        while (temp != NULL) {
             printf("%p\n", temp->value);
             temp = temp->previous;
             count++;
@@ -96,15 +96,15 @@ void DisplayAllStack(Stack this){
 }
 
 
-void StackDelete(Stack this){
-    while(!StackIsEmpty(this)){
+void StackDelete(Stack this) {
+    while (!StackIsEmpty(this)) {
         StackPop(this);
     }
     this = NULL;
 }
 
 
-void CellDelete(Cell cell){
+void CellDelete(Cell cell) {
     free(cell);
     cell = NULL;
 }
