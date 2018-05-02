@@ -31,7 +31,7 @@ struct stack_t{
 };
 
 struct cell_t {
-    struct cel_t* previous;
+    struct cell_t* previous;
     T value;
 };
 
