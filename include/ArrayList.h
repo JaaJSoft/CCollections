@@ -125,7 +125,7 @@ void ArrayListMatchLength(ArrayList this);
  * @param this
  * @return length
  */
-int ArrayListGetLength(ArrayList this);
+size_t ArrayListGetLength(ArrayList this);
 
 /**
  * return the real length
@@ -133,15 +133,7 @@ int ArrayListGetLength(ArrayList this);
  * @param this
  * @return real length
  */
-int ArrayListGetRealLength(ArrayList this);
-
-/**
- *
- *
- * @param this
- * @return increment
- */
-int ArrayListGetIncrement(ArrayList this);
+size_t ArrayListGetRealLength(ArrayList this);
 
 /**
  * Apply the apply function to all the element in the ArrayList

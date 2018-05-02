@@ -30,9 +30,15 @@
 
 typedef struct treeset_t *TreeSet;
 
-TreeSet newTreeSet();
+TreeSet newTreeSet(int (*compareTo)(T value1, T value2), size_t size);
 
-void TreeSetAppend(TreeSet this, T value);
+/**
+ *
+ * @param this
+ * @param value
+ * @return
+ */
+int TreeSetAdd(TreeSet this, T value);
 
 int TreeSetRemove(TreeSet this, unsigned int i);
 
@@ -45,6 +51,8 @@ int TreeSetContainsValue(TreeSet this, T value);
 int TreeSetIsEmpty(TreeSet this);
 
 void TreeSetDisplay(TreeSet this);
+
+void TreeSetPrint(TreeSet this, void (*printT(T value)));
 
 T *TreeSetToArray(TreeSet this);
 
