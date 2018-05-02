@@ -1,0 +1,8 @@
+//
+// Created by pierre on 02/05/18.
+//
+
+#ifndef CCOLLECTIONS_COMPARETO_H
+#define CCOLLECTIONS_COMPARETO_H
+
+#endif //CCOLLECTIONS_COMPARETO_H

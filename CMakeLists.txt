@@ -12,12 +12,15 @@ add_library(CCollections SHARED
         src/LinkedList.c
         src/PriorityQueue.c
         src/TreeSet.c
+        src/Stack.c
+        src/CompareTo.c
         include/ArrayList.h
         include/LinkedList.h
         include/PriorityQueue.h
         include/Stack.h
         include/TreeSet.h
         include/util.h
+        include/CompareTo.h
         )
 
 add_executable(TestArrayList
