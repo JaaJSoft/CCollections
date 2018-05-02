@@ -227,7 +227,7 @@ T LinkedListGetCurrent(LinkedList this) {
 
 int LinkedListMoveCurrentNext(LinkedList this) {
     if (!_nextOne) {
-        return 1;
+        return 0;
     } else {
         _current = _nextOne;
         _nextOne = _current->next;
@@ -258,7 +258,7 @@ int LinkedListSearch(LinkedList this, T value) {
 }
 
 int LinkedListDisplay(LinkedList this) {
-
+    return 0;
 }
 
 int LinkedListIsEmpty(LinkedList this) {
