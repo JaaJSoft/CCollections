@@ -94,4 +94,10 @@ int PriorityQueueIsEmpty(PriorityQueue this);
  */
 void PriorityQueueDelete(PriorityQueue this);
 
+/**
+ *
+ * @param this
+ */
+void PriorityQueueDisplay(PriorityQueue this,FILE *file, void (*displayValue)(T));
+
 #endif //CCOLLECTIONS_PRIORITYQUEUE_H

@@ -95,7 +95,7 @@ void PriorityQueueChangePrioSpecificSearch(PriorityQueue this, T value, int newP
         index++;
     }
 
-    if (_heap[index].value == value) {
+    if (equals(_heap[index].value, value)) {
 
         if (_heap[index].priority < newPriority) {
             _heap[index].priority = newPriority;
@@ -121,6 +121,16 @@ void PriorityQueueDelete(PriorityQueue this) {
     free(this);
 }
 
+void PriorityQueueDisplay(PriorityQueue this,FILE *file, void (*displayValue)(T)) {
+    int i;
+
+    for (i = 1; i < _index; i ++) {
+        displayValue(_heap[i].value);
+        fprintf(file, "(%d)\n", _heap[i].priority);
+        fflush(file);
+    }
+}
+
 void percolateUp(PriorityQueue this, int index) {
     int father;
     while (hasToMoveUp(this, index, &father)) {
@@ -129,7 +139,7 @@ void percolateUp(PriorityQueue this, int index) {
     }
 }
 
-int inline hasToMoveUp(PriorityQueue this, int index, int *father) {
+inline int hasToMoveUp(PriorityQueue this, int index, int *father) {
     *father = index >> 1;
     return index != 1 && _heap[index].priority > _heap[*father].priority;
 }
@@ -165,7 +175,7 @@ int hasToMoveDown(PriorityQueue this, int index, int *sonMin) {
 }
 
 
-void inline swap(struct cell_t *a, struct cell_t *b) {
+inline void swap(struct cell_t *a, struct cell_t *b) {
     struct cell_t tmp;
     tmp = *a;
     *a = *b;
