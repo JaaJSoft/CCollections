@@ -19,7 +19,7 @@ add_library(CCollections SHARED
         include/TreeSet.h
         include/util.h
         include/CompareTo.h
-        )
+        src/Queue.c include/Queue.h)
 
 add_executable(TestArrayList
         src/ArrayList.c
