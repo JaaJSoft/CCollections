@@ -15,7 +15,7 @@
  * KIND, either express or implied.  See the License for the
  * specific language governing permissions and limitations
  * under the License.
-*/
+ */
 
 /**
  * @author Pierre Chopinet
@@ -24,3 +24,14 @@
  * @Date 02/05/18
  */
 #include "CompareTo.h"
+
+int compareToInt(T value1, T value2) {
+    int *v1 = value1;
+    int *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}

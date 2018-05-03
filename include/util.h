@@ -29,8 +29,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef void * T;
-
+typedef void *T;
 
 
 #endif //CCOLLECTIONS_UTIL_H

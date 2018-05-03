@@ -6,7 +6,7 @@
 
 int main() {
 
-    ArrayList a = newArrayList(3, sizeof(int));
+    ArrayList a = newArrayList(sizeof(int));
     int b = 0, c = 5, d = 42;
 
     ArrayListAppend(a, &b);
