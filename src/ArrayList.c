@@ -34,12 +34,11 @@ struct ArrayList_t {
     size_t size;
 };
 
-ArrayList newArrayList(size_t initLength, size_t size) {
+ArrayList newArrayList(size_t size) {
     ArrayList this = malloc(sizeof(struct ArrayList_t));
     this->length = 0;
-    this->realLength = initLength;
     this->size = size;
-    this->tab = malloc(sizeof(void *) * initLength);
+    this->tab = malloc(sizeof(void *));
     return this;
 }
 

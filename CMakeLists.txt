@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.7.2)
 project(CCollections C)
 
-enable_testing()
-
 set(CMAKE_C_STANDARD 11)
 
 include_directories(include)
@@ -35,6 +33,8 @@ add_executable(TestTreeSet
         test/testTreeSet.c
         include/TreeSet.h
         include/util.h
+        include/CompareTo.h
+        src/CompareTo.c
         )
 
 add_executable(TestLinkedList

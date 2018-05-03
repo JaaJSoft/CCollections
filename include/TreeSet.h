@@ -26,7 +26,7 @@
 #ifndef CCOLLECTIONS_TREESET_H
 #define CCOLLECTIONS_TREESET_H
 
-#include "util.h"
+#include <util.h>
 
 typedef struct treeset_t *TreeSet;
 
@@ -52,9 +52,11 @@ int TreeSetIsEmpty(TreeSet this);
 
 void TreeSetDisplay(TreeSet this);
 
-void TreeSetPrint(TreeSet this, void (*printT(T value)));
+void TreeSetPrint(TreeSet this, void (*printT)(T value));
 
 T *TreeSetToArray(TreeSet this);
+
+void TreeSetForEach(TreeSet this, T (*apply)(T value));
 
 void TreeSetDelete(TreeSet this);
 

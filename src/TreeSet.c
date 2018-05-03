@@ -64,39 +64,43 @@ TreeNode newTreeNode(TreeNode father, T value) {
     return t;
 }
 
-int TreeNodeAdd(TreeSet this, TreeNode t, T value) {
-    int compare = this->compareTo(t->value, value);
+int TreeNodeAdd(TreeSet this, TreeNode father, T value) {
+    int compare = this->compareTo(father->value, value);
     if (compare < 0) {
-        if (isNULL(t->sonG)) {
-            t->sonG = newTreeNode(t, value);
+        if (isNULL(father->sonG)) {
+            father->sonG = newTreeNode(father, value);
             this->numberOfElement++;
-        } else {
-            TreeNodeAdd(this, t->sonG, value);
+            return 1;
         }
+        return TreeNodeAdd(this, father->sonG, value);
     } else if (compare > 0) {
-        if (isNULL(t->sonD)) {
-            t->sonD = newTreeNode(t, value);
+        if (isNULL(father->sonD)) {
+            father->sonD = newTreeNode(father, value);
             this->numberOfElement++;
-        } else {
-            TreeNodeAdd(this, t->sonD, value);
+            return 1;
         }
-    } else {
-        return 0;
+        return TreeNodeAdd(this, father->sonD, value);
     }
+    return 0;
 }
 
 
 int TreeSetAdd(TreeSet this, T value) {
-    if (TreeSetIsEmpty(this)) {
+    if (TreeSetIsEmpty(this)) { //root case
         this->root = newTreeNode(NULL, value);
         this->numberOfElement++;
+        this->current = this->root;
     } else {
         TreeNodeAdd(this, this->root, value);
     }
 }
 
 int TreeSetIsEmpty(TreeSet this) {
-    return 0;
+    return this->numberOfElement == 0;
+}
+
+void TreeSetDelete(TreeSet this) {
+
 }
 
 

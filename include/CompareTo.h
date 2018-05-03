@@ -15,7 +15,7 @@
  * KIND, either express or implied.  See the License for the
  * specific language governing permissions and limitations
  * under the License.
-*/
+ */
 
 /**
  * @author Pierre Chopinet
@@ -24,10 +24,11 @@
  * @Date 02/05/18
  */
 
-#include "util.h"
 
 #ifndef CCOLLECTIONS_COMPARETO_H
 #define CCOLLECTIONS_COMPARETO_H
+
+#include "util.h"
 
 /**
  * Compare two T which point on two int
@@ -36,6 +37,7 @@
  * @param value2
  * @return -1 if value2 < value1, 1 if value2 > value1, 0 if equals
  */
+
 int compareToInt(T value1, T value2);
 
 int compareToUnsignedInt(T value1, T value2);
