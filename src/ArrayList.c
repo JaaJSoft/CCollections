@@ -37,6 +37,7 @@ struct ArrayList_t {
 ArrayList newArrayList(size_t size) {
     ArrayList this = malloc(sizeof(struct ArrayList_t));
     this->length = 0;
+    this->realLength = 1;
     this->size = size;
     this->tab = malloc(sizeof(void *));
     return this;
