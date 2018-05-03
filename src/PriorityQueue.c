@@ -55,6 +55,8 @@ void swap(struct cell_t *a, struct cell_t *b);
 
 int basicSearch(T,T);
 
+void PriorityQueueDisplayRecursive(PriorityQueue this, FILE *file, void (*displayValue)(T), int index, int depth);
+
 PriorityQueue newPriorityQueue() {
     PriorityQueue queue = malloc(sizeof(struct priorityqueue_t));
     queue->heap = calloc(sizeof(struct cell_t), HEAP_SIZE);
@@ -97,11 +99,11 @@ void PriorityQueueChangePrioSpecificSearch(PriorityQueue this, T value, int newP
 
     if (equals(_heap[index].value, value)) {
 
-        if (_heap[index].priority < newPriority) {
+        if (_heap[index].priority > newPriority) {
             _heap[index].priority = newPriority;
             percolateUp(this, index);
 
-        } else if (_heap[index].priority > newPriority) {
+        } else if (_heap[index].priority < newPriority) {
             _heap[index].priority = newPriority;
             percolateDown(this, index);
 
@@ -122,13 +124,8 @@ void PriorityQueueDelete(PriorityQueue this) {
 }
 
 void PriorityQueueDisplay(PriorityQueue this,FILE *file, void (*displayValue)(T)) {
-    int i;
 
-    for (i = 1; i < _index; i ++) {
-        displayValue(_heap[i].value);
-        fprintf(file, "(%d)\n", _heap[i].priority);
-        fflush(file);
-    }
+    PriorityQueueDisplayRecursive(this, file, displayValue, 1, 0);
 }
 
 void percolateUp(PriorityQueue this, int index) {
@@ -140,8 +137,8 @@ void percolateUp(PriorityQueue this, int index) {
 }
 
 inline int hasToMoveUp(PriorityQueue this, int index, int *father) {
-    *father = index >> 1;
-    return index != 1 && _heap[index].priority > _heap[*father].priority;
+    *father = index >> 1; // % 2
+    return index != 1 && _heap[index].priority < _heap[*father].priority;
 }
 
 void percolateDown(PriorityQueue this, int index) {
@@ -155,19 +152,20 @@ void percolateDown(PriorityQueue this, int index) {
 int hasToMoveDown(PriorityQueue this, int index, int *sonMin) {
     int otherSon;
 
-    *sonMin = index << 1;
+    *sonMin = index << 1; // * 2
     otherSon = *sonMin + 1;
 
     if (*sonMin >= _index) {
         return 0;
     }
 
-    if (_heap[index].priority > _heap[*sonMin].priority) {
-
-        if (otherSon < index && _heap[otherSon].priority < _heap[*sonMin].priority) {
+    if (otherSon < _index) {
+        if (_heap[otherSon].priority < _heap[*sonMin].priority) {
             *sonMin = otherSon;
         }
+    }
 
+    if (_heap[index].priority > _heap[*sonMin].priority) {
         return 1;
     }
 
@@ -184,4 +182,22 @@ inline void swap(struct cell_t *a, struct cell_t *b) {
 
 int basicSearch(T a,T b) {
     return a == b;
+}
+
+
+void PriorityQueueDisplayRecursive(PriorityQueue this, FILE *file, void (*displayValue)(T), int index, int depth) {
+
+    for (int i = 0; i < depth; i ++)
+        fprintf(file, "\t");
+    displayValue(_heap[index].value);
+    fprintf(file, "(%d)\n", _heap[index].priority);
+    fflush(file);
+
+    if (index*2 < _index) {
+        PriorityQueueDisplayRecursive(this, file, displayValue, index * 2, depth + 1);
+        if (index*2+1 < _index) {
+            PriorityQueueDisplayRecursive(this, file, displayValue, index * 2 + 1, depth + 1);
+        }
+    }
+
 }
