@@ -35,3 +35,136 @@ int compareToInt(T value1, T value2) {
     }
     return 0;
 }
+
+int compareToUnsignedInt(T value1, T value2) {
+    unsigned int *v1 = value1;
+    unsigned int *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+
+int compareToShort(T value1, T value2) {
+    short *v1 = value1;
+    short *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+
+int compareToUnsignedShort(T value1, T value2) {
+    unsigned short *v1 = value1;
+    unsigned short *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+
+int compareToChar(T value1, T value2) {
+    char *v1 = value1;
+    char *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+
+int compareToUnsignedChar(T value1, T value2) {
+    unsigned char *v1 = value1;
+    unsigned char *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+
+int compareToDouble(T value1, T value2) {
+    double *v1 = value1;
+    double *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+
+int compareToLongDouble(T value1, T value2) {
+    long double *v1 = value1;
+    long double *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+
+int compareToFloat(T value1, T value2) {
+    float *v1 = value1;
+    float *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+
+int compareToLong(T value1, T value2) {
+    long *v1 = value1;
+    long *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+
+int compareToLongLong(T value1, T value2) {
+    long long *v1 = value1;
+    long long *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+
+int compareToUnsignedLong(T value1, T value2) {
+    unsigned long *v1 = value1;
+    unsigned long *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+
+int compareToUnsignedLongLong(T value1, T value2) {
+    unsigned long long *v1 = value1;
+    unsigned long long *v2 = value2;
+    if (*v2 > *v1) {
+        return 1;
+    } else if (*v2 < *v1) {
+        return -1;
+    }
+    return 0;
+}
+

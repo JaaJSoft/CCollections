@@ -23,7 +23,7 @@ add_library(CCollections SHARED
 
 add_executable(TestArrayList
         src/ArrayList.c
-        test/testArray.c
+        test/testArrayList.c
         include/ArrayList.h
         include/util.h
         )
