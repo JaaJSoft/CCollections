@@ -3,23 +3,26 @@
 //
 
 #include <ArrayList.h>
+#include <time.h>
 
 int main() {
 
     ArrayList a = newArrayList(sizeof(int));
-    int b = 0, c = 5, d = 42;
+    srand(time(NULL));
+    printf("Expected : \n");
+    for (int i = 0; i < 80; i++) {
+        int *t = malloc(sizeof(int));
+        *t = rand() % 100;
+        printf("%d ", *t);
+        ArrayListAppend(a, t);
+    }
+    printf("\nFind : \n");
+    for (int i = 0; i < 80; i++) {
+        int *b = ArrayListGet(a, i);
+        printf("%d ", *b);
+        free(b);
+    }
 
-    ArrayListAppend(a, &b);
-    ArrayListAppend(a, &c);
-    ArrayListAppend(a, &c);
-    ArrayListAppend(a, &b);
-    ArrayListSet(a, 2, &d);
-    ArrayListDisplay(a);
-    ArrayListRemoveValue(a, 2);
-    ArrayListDisplay(a);
-
-    ArrayListAppend(a, &d);
-    ArrayListDisplay(a);
     ArrayListDelete(a);
     return 0;
 }
