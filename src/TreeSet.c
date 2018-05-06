@@ -89,7 +89,6 @@ int TreeSetAdd(TreeSet this, T value) {
     if (TreeSetIsEmpty(this)) { //root case
         this->root = newTreeNode(NULL, value);
         this->numberOfElement++;
-        this->current = this->root;
     } else {
         TreeNodeAdd(this, this->root, value);
     }
@@ -99,9 +98,76 @@ int TreeSetIsEmpty(TreeSet this) {
     return this->numberOfElement == 0;
 }
 
+TreeNode TreeNodeMin(TreeSet this, TreeNode t) {
+    if (t->sonG == NULL) {
+        return t;
+    } else {
+        return TreeNodeMin(this, t->sonG);
+    }
+}
+
+TreeNode TreeNodeNext(TreeSet this, TreeNode t) {
+    if (t == NULL) {
+        return NULL;
+    }
+
+    if (t->sonD == NULL) {
+        if (t->father != NULL) {
+            int compare = this->compareTo(t->value, t->father->value);
+            if (compare == 1) {
+                return t->father;
+            } else if (compare == -1) {
+                return NULL;
+            }
+        } else {
+            return NULL;
+        }
+
+    } else {
+        return TreeNodeNext(this, t->sonD);
+    }
+
+}
+
+T TreeSetNext(TreeSet this) {
+    if (this->current == NULL) {
+        this->current = TreeNodeMin(this, this->root);
+    }
+    TreeNode t = this->current;
+    TreeNode temp = TreeNodeNext(this, this->current);
+
+    if (temp != NULL) {
+        this->current = temp;
+    } else {
+        return NULL;
+    }
+    return t->value;
+}
+
+void TreeNodeEach(TreeSet this, TreeNode t, void (*apply)(T value)) {
+    if (t != NULL) {
+        TreeNodeEach(this, t->sonG, apply);
+        apply(t->value);
+        TreeNodeEach(this, t->sonD, apply);
+    }
+}
+
+void TreeSetForEach(TreeSet this, void (*apply)(T value)) {
+    TreeNodeEach(this, this->root, apply);
+}
+
 void TreeSetDelete(TreeSet this) {
 
 }
+
+unsigned int TreeSetGetLength(TreeSet this) {
+    return this->numberOfElement;
+}
+
+void TreeSetPrint(TreeSet this, void (*printT)(T)) {
+    TreeSetForEach(this, printT);
+}
+
 
 
 

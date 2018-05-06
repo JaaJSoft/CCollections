@@ -56,8 +56,16 @@ void TreeSetPrint(TreeSet this, void (*printT)(T value));
 
 T *TreeSetToArray(TreeSet this);
 
-void TreeSetForEach(TreeSet this, T (*apply)(T value));
+void TreeSetForEach(TreeSet this, void (*apply)(T value));
 
 void TreeSetDelete(TreeSet this);
+/**
+ * @warning doesn't work
+ * @param this
+ * @return
+ */
+T TreeSetNext(TreeSet this);
+
+unsigned int TreeSetGetLength(TreeSet this);
 
 #endif //CCOLLECTIONS_TREESET_H
