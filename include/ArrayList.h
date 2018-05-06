@@ -141,7 +141,7 @@ size_t ArrayListGetRealLength(ArrayList this);
  * @param this arraylist
  * @param apply a function pointer that must be a function of the form T function(T value)
  */
-void ArrayListForEach(ArrayList this, T (*apply)(T value));
+void ArrayListForEach(ArrayList this, void (*apply)(T value));
 
 /**
  * test if the array is empty
