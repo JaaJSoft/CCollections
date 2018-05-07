@@ -37,7 +37,6 @@
  * @param value2
  * @return -1 if value2 < value1, 1 if value2 > value1, 0 if equals
  */
-
 int compareToInt(T value1, T value2);
 
 int compareToUnsignedInt(T value1, T value2);

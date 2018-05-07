@@ -117,10 +117,10 @@ T *ArrayListToArray(ArrayList this) {
     return tab;
 }
 
-void ArrayListForEach(ArrayList this, T (*apply)(T)) {
+void ArrayListForEach(ArrayList this, void (*apply)(T)) {
     int i;
     for (i = 0; i < this->length; i++) {
-        this->tab[i] = apply(this->tab[i]);
+        apply(this->tab[i]);
     }
 }
 
