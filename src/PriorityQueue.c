@@ -123,6 +123,18 @@ void PriorityQueueDelete(PriorityQueue this) {
     free(this);
 }
 
+int PriorityQueueSearch(PriorityQueue this, T value, int (*equals)(T, T)) {
+    int i;
+
+    for (i = 1; i < _index; i ++) {
+        if (equals(_heap[i].value, value)) {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
 void PriorityQueueDisplay(PriorityQueue this,FILE *file, void (*displayValue)(T)) {
 
     PriorityQueueDisplayRecursive(this, file, displayValue, 1, 0);

@@ -97,6 +97,15 @@ void PriorityQueueDelete(PriorityQueue this);
 /**
  *
  * @param this
+ * @param value
+ * @param equals
+ * @return
+ */
+int PriorityQueueSearch(PriorityQueue this, T value, int (*equals)(T, T));
+
+/**
+ *
+ * @param this
  */
 void PriorityQueueDisplay(PriorityQueue this,FILE *file, void (*displayValue)(T));
 
