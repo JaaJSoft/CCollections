@@ -82,7 +82,7 @@ void ArrayListDelete(ArrayList this) {
 }
 
 void ArrayListDisplay(ArrayList this) {
-    printf("Length : %d, Real Length : %d\n", this->length, this->realLength);
+    printf("Length : %lu, Real Length : %lu\n", this->length, this->realLength);
     fflush(stdout);
     for (int i = 0; i < this->length; i++) {
         printf("%p\n", this->tab[i]);
