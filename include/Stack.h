@@ -29,7 +29,7 @@
 #include <util.h>
 
 /**
- * The stack is a list where the last in is the last out
+ * The stack is a list in which the first in is the last out
  */
 typedef struct stack_t *Stack;
 
