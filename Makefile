@@ -1,4 +1,4 @@
-CFLAGS = -Wall -Wextra -pedantic-errors
+CFLAGS =
 CC = gcc
 LDFLAGS =
 SRCDIR = src/
@@ -13,10 +13,10 @@ outputdir = bin/
 all: $(outputdir)libCCollections.a
 
 $(outputdir)libCCollections.a: $(OBJ)
-	ar rcs $@ $^
+	@ar rcs $@ $^
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
-	$(CC) -o $@ -c $< -I include/ $(CFLAGS) -O2
+	@$(CC) -o $@ -c $< -I include/ $(CFLAGS) -O2
 
 clean :
 	rm -f $(OBJDIR)*.o $(OBJDIR)*~
